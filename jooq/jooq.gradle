@@ -4,7 +4,7 @@ jooq {
         // Configure the database connection here
         jdbc {
             driver = "org.postgresql.Driver"
-            url = "jdbc:postgresql://localhost:5432/yasmin-db"
+            url = "jdbc:postgresql://localhost:5432/java-spring-boot-ms-template-db"
             user = "local-dev-only"
             password = "local-dev-only"
 
@@ -111,18 +111,19 @@ jooq {
                 // manual's next section to learn how to generate several schemata
                 inputSchema = "cookbook"
 
-                forcedTypes {
-                    forcedType {
-                        userType = "com.panopticode.yasmin.persistence.dto.Difficulty"
-                        converter = "com.panopticode.yasmin.persistence.converter.DifficultyEnumConverter"
-
-                        // A Java regex matching fully-qualified columns, attributes, parameters. Use the pipe to separate several expressions.
-                        includeExpression = ".*\\.difficulty"
-
-                        objectType = "COLUMN"
-                        nullability = "NOT_NULL"
-                    }
-                }
+                // Example forced type
+//                forcedTypes {
+//                    forcedType {
+//                        userType = "com.panopticode.example.persistence.dto.Difficulty"
+//                        converter = "com.panopticode.example.persistence.converter.DifficultyEnumConverter"
+//
+//                        // A Java regex matching fully-qualified columns, attributes, parameters. Use the pipe to separate several expressions.
+//                        includeExpression = ".*\\.difficulty"
+//
+//                        objectType = "COLUMN"
+//                        nullability = "NOT_NULL"
+//                    }
+//                }
             }
 
             // Generation flags: See advanced configuration properties

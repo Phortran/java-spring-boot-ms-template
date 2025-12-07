@@ -1,0 +1,3 @@
+rootProject.name = 'java-spring-boot-ms-template'
+include 'custom-checks'
+include 'test-common'
