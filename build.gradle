@@ -71,7 +71,7 @@ dependencies {
 	implementation "org.jooq:jooq:$jooqVersion"
 
 	// Additional dependencies for OpenAPI
-	implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+	implementation 'org.openapitools:jackson-databind-nullable:0.2.8'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.8.0'
 
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
