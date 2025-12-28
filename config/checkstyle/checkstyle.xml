@@ -262,7 +262,7 @@
         <module name="NoCodeInFile"/>
         <module name="OuterTypeFilename"/>
         <module name="TrailingComment">
-            <property name="format" value="^(?: *@\w+\(&quot;\w+&quot;\)\s+|[\s});]*)$"/>
+            <property name="format" value="^(?: *@\w+\(&quot;[\w:]+&quot;\)\s+|[\s});]*)$"/>
         </module>
 
         <!-- Modifiers -->
@@ -327,7 +327,9 @@
             <property name="max" value="6"/>
             <property name="tokens" value="METHOD_DEF"/>
         </module>
-        <module name="RecordComponentNumber"/>
+        <module name="RecordComponentNumber">
+            <property name="max" value="12"/>
+        </module>
 
         <!-- Whitespace -->
         <module name="EmptyForInitializerPad">

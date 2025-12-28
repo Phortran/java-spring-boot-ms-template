@@ -16,9 +16,9 @@ plugins {
 	id 'jacoco'
 	id 'org.springframework.boot' version "$springVersion"
 	id 'io.spring.dependency-management' version '1.1.7'
-	id 'org.flywaydb.flyway' version '11.3.4'
+	id 'org.flywaydb.flyway' version '11.20.0'
 	id 'org.jooq.jooq-codegen-gradle' version "$jooqVersion"
-	id 'org.openapi.generator' version '7.12.0'
+	id 'org.openapi.generator' version '7.18.0'
 	id 'com.github.spotbugs' version '6.1.6'
 }
 
@@ -64,10 +64,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.data:spring-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	// Persistence
-	implementation 'org.flywaydb:flyway-core:11.3.4'
-	implementation 'org.flywaydb:flyway-database-postgresql:11.3.4'
+	implementation 'org.flywaydb:flyway-core:11.20.0'
+	implementation 'org.flywaydb:flyway-database-postgresql:11.20.0'
 	implementation "org.jooq:jooq:$jooqVersion"
 
 	// Additional dependencies for OpenAPI
@@ -126,7 +127,7 @@ testing {
 				implementation 'org.testcontainers:junit-jupiter:1.20.5'
 				implementation 'org.testcontainers:postgresql:1.20.5'
 				implementation "org.jooq:jooq:$jooqVersion"
-				implementation 'org.flywaydb:flyway-core:11.3.4'
+				implementation 'org.flywaydb:flyway-core:11.20.0'
 			}
 
 			sources {
@@ -263,35 +264,22 @@ flyway {
 }
 
 tasks.register('bundleApiSpecs', Exec) {
-	description = 'Bundle all the api specs into one file'
-	group = 'OpenAPI Tools'
+    description = 'Bundle all the api specs into one file'
+    group = 'OpenAPI Tools'
 
-	commandLine 'docker', 'run',
-			'--rm',
-			'-v', "$projectDir/api:/spec",
-			'redocly/cli:1.10.3',
-			'bundle',
-			'openapi.yaml',
-			'-o', 'bundled.yaml'
+    commandLine 'docker', 'run',
+            '--rm',
+            '-v', "$projectDir/api:/spec",
+            'redocly/cli:2.12.6',
+            'bundle',
+            'src/openapi.yaml',
+            '-o', 'dist/openapi.yaml'
 
-	outputs.file(layout.buildDirectory.file('openapi/openapi.yaml'))
-
-	doLast {
-		println "Copying bundled API specs to build directory..."
-
-		copy {
-			from layout.projectDirectory.file('api/bundled.yaml')
-			into layout.buildDirectory.dir('openapi')
-
-			rename 'bundled', 'openapi'
-		}
-
-		delete "${rootDir}/api/bundled.yaml"
-	}
+    outputs.file(layout.projectDirectory.file('api/dist/openapi.yaml'))
 }
 
 // This task is an internal utility and it's not polished
-// it reads the specs at api/openapi.yaml and create the documents
+// it reads the specs at api/cookbook/openapi.yaml and create the documents
 // inside api/cookbook/. The openapi.yaml rooted there needs to be
 // moved where the original was and all the $refs fixed.
 tasks.register('splitApiSpecs', Exec) {
@@ -300,14 +288,24 @@ tasks.register('splitApiSpecs', Exec) {
 	commandLine 'docker', 'run',
 			'--rm',
 			'-v', "$projectDir/api:/spec",
-			'redocly/cli:1.10.3',
+            'redocly/cli:2.12.6',
 			'split',
-			'openapi.yaml',
-			'--outDir', './cookbook'
+            'dist/openapi.yaml',
+			'--outDir', 'src/cookbook'
+}
+
+tasks.register('checkOpenApiContract', Exec) {
+    mkdir 'build/openApiCheck'
+
+    commandLine 'scripts/openapi-check.sh'
+}
+
+tasks.named('check') {
+    dependsOn(checkOpenApiContract)
 }
 
 openApiValidate {
-	inputSpec.set("$projectDir/build/openapi/openapi.yaml")
+    inputSpec.set("$projectDir/api/src/openapi.yaml")
 	recommend.set(true)
 }
 
@@ -319,8 +317,8 @@ openApiGenerate {
 	verbose.set(true)
 	generatorName.set('spring')
 	outputDir.set("$projectDir")
-	inputSpecRootDirectory.set("$projectDir/build/openapi")
-	inputSpec.set("$projectDir/build/openapi/openapi.yaml")
+    inputSpecRootDirectory.set("$projectDir/api/dist")
+    inputSpec.set("$projectDir/api/dist/openapi.yaml")
 	invokerPackage.set('com.panopticode.openapi')
 	apiPackage.set('com.panopticode.openapi.api')
 	modelPackage.set('com.panopticode.openapi.model')
@@ -348,7 +346,7 @@ tasks.register('generateDocs', GenerateTask) {
 	dependsOn bundleApiSpecs
 	generatorName.set('html2')
 	outputDir.set("$projectDir/docs")
-	inputSpec.set("$projectDir/build/openapi/openapi.yaml")
+    inputSpec.set("$projectDir/api/dist/openapi.yaml")
 	configOptions = [
 			appName        : 'java-spring-boot-ms-template',
 			appDescription : 'A template code base for a java Spring Boot micro-service, with database versioning, a RESTful API defined and documented using OpenAPI and a compelling test suite.',
