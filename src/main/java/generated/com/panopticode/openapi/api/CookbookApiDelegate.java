@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * A delegate to be called by the {@link CookbookApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-07T11:55:54.264385344Z[Europe/London]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-28T03:09:42.850562636Z[Europe/London]", comments = "Generator version: 7.18.0")
 public interface CookbookApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
