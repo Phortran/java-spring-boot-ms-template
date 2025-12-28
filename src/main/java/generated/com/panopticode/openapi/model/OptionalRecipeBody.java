@@ -22,7 +22,7 @@ import jakarta.annotation.Generated;
  */
 
 @Schema(name = "OptionalRecipeBody", description = "Lighter recipe object, optional fields")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-07T11:55:54.264385344Z[Europe/London]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-28T03:09:42.850562636Z[Europe/London]", comments = "Generator version: 7.18.0")
 public class OptionalRecipeBody {
 
   private @Nullable String name;
@@ -43,7 +43,7 @@ public class OptionalRecipeBody {
 
   private @Nullable String textOutro;
 
-  public OptionalRecipeBody name(String name) {
+  public OptionalRecipeBody name(@Nullable String name) {
     this.name = name;
     return this;
   }
@@ -55,15 +55,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("name")
-  public String getName() {
+  public @Nullable String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(@Nullable String name) {
     this.name = name;
   }
 
-  public OptionalRecipeBody servings(Integer servings) {
+  public OptionalRecipeBody servings(@Nullable Integer servings) {
     this.servings = servings;
     return this;
   }
@@ -75,15 +75,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "servings", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("servings")
-  public Integer getServings() {
+  public @Nullable Integer getServings() {
     return servings;
   }
 
-  public void setServings(Integer servings) {
+  public void setServings(@Nullable Integer servings) {
     this.servings = servings;
   }
 
-  public OptionalRecipeBody textIntro(String textIntro) {
+  public OptionalRecipeBody textIntro(@Nullable String textIntro) {
     this.textIntro = textIntro;
     return this;
   }
@@ -95,15 +95,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "textIntro", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("textIntro")
-  public String getTextIntro() {
+  public @Nullable String getTextIntro() {
     return textIntro;
   }
 
-  public void setTextIntro(String textIntro) {
+  public void setTextIntro(@Nullable String textIntro) {
     this.textIntro = textIntro;
   }
 
-  public OptionalRecipeBody picture(String picture) {
+  public OptionalRecipeBody picture(@Nullable String picture) {
     this.picture = picture;
     return this;
   }
@@ -115,15 +115,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "picture", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("picture")
-  public String getPicture() {
+  public @Nullable String getPicture() {
     return picture;
   }
 
-  public void setPicture(String picture) {
+  public void setPicture(@Nullable String picture) {
     this.picture = picture;
   }
 
-  public OptionalRecipeBody thumbnail(String thumbnail) {
+  public OptionalRecipeBody thumbnail(@Nullable String thumbnail) {
     this.thumbnail = thumbnail;
     return this;
   }
@@ -135,15 +135,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "thumbnail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("thumbnail")
-  public String getThumbnail() {
+  public @Nullable String getThumbnail() {
     return thumbnail;
   }
 
-  public void setThumbnail(String thumbnail) {
+  public void setThumbnail(@Nullable String thumbnail) {
     this.thumbnail = thumbnail;
   }
 
-  public OptionalRecipeBody difficulty(Difficulty difficulty) {
+  public OptionalRecipeBody difficulty(@Nullable Difficulty difficulty) {
     this.difficulty = difficulty;
     return this;
   }
@@ -155,15 +155,15 @@ public class OptionalRecipeBody {
   @Valid 
   @Schema(name = "difficulty", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("difficulty")
-  public Difficulty getDifficulty() {
+  public @Nullable Difficulty getDifficulty() {
     return difficulty;
   }
 
-  public void setDifficulty(Difficulty difficulty) {
+  public void setDifficulty(@Nullable Difficulty difficulty) {
     this.difficulty = difficulty;
   }
 
-  public OptionalRecipeBody prepTimeM(Integer prepTimeM) {
+  public OptionalRecipeBody prepTimeM(@Nullable Integer prepTimeM) {
     this.prepTimeM = prepTimeM;
     return this;
   }
@@ -175,15 +175,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "prepTimeM", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("prepTimeM")
-  public Integer getPrepTimeM() {
+  public @Nullable Integer getPrepTimeM() {
     return prepTimeM;
   }
 
-  public void setPrepTimeM(Integer prepTimeM) {
+  public void setPrepTimeM(@Nullable Integer prepTimeM) {
     this.prepTimeM = prepTimeM;
   }
 
-  public OptionalRecipeBody cookTimeM(Integer cookTimeM) {
+  public OptionalRecipeBody cookTimeM(@Nullable Integer cookTimeM) {
     this.cookTimeM = cookTimeM;
     return this;
   }
@@ -195,15 +195,15 @@ public class OptionalRecipeBody {
   
   @Schema(name = "cookTimeM", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("cookTimeM")
-  public Integer getCookTimeM() {
+  public @Nullable Integer getCookTimeM() {
     return cookTimeM;
   }
 
-  public void setCookTimeM(Integer cookTimeM) {
+  public void setCookTimeM(@Nullable Integer cookTimeM) {
     this.cookTimeM = cookTimeM;
   }
 
-  public OptionalRecipeBody textOutro(String textOutro) {
+  public OptionalRecipeBody textOutro(@Nullable String textOutro) {
     this.textOutro = textOutro;
     return this;
   }
@@ -215,11 +215,11 @@ public class OptionalRecipeBody {
   
   @Schema(name = "textOutro", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("textOutro")
-  public String getTextOutro() {
+  public @Nullable String getTextOutro() {
     return textOutro;
   }
 
-  public void setTextOutro(String textOutro) {
+  public void setTextOutro(@Nullable String textOutro) {
     this.textOutro = textOutro;
   }
 

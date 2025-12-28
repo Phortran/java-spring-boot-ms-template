@@ -31,9 +31,9 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-07T11:55:54.264385344Z[Europe/London]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-28T03:09:42.850562636Z[Europe/London]", comments = "Generator version: 7.18.0")
 @Controller
-@RequestMapping("${openapi.java-spring-boot-ms-template_OpenAPI.base-path:}")
+@RequestMapping("${openapi.java-spring-boot-ms-template_OpenAPI.base-path:/api}")
 public class CookbookApiController implements CookbookApi {
 
     private final CookbookApiDelegate delegate;

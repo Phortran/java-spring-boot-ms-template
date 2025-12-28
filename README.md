@@ -35,9 +35,21 @@ The API specification is in the `api` folder and follows the OpenAPI v3 model. C
 the OpenAPI engine. When changing the API spec, regenerate the API entities with
 
 ```shell
+rm api/dist/*
 rm -rf src/main/java/generated/com/panopticode/openapi
 ./gradlew openApiGenerate
 ```
+
+#### OpenAPI Contract
+
+- `src/` contains the human-authored OpenAPI source (multi-file).
+- `dist/openapi.yaml` is the bundled, published contract.
+- The bundled contract is versioned and immutable once released.
+- Consumers must depend only on `dist/openapi.yaml`
+
+A consumer of this API is supposed to generate a client using the manifest
+`https://raw.githubusercontent.com/Phortran/java-spring-boot-ms-template/refs/tags/vx.y.z/api/dist/openapi.yaml`, taking care
+of replacing `x.y.z` with an actual version. **IMPORTANT! Only refer to version tags for stability and reproducibility**.
 
 #### API Docs
 
