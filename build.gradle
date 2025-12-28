@@ -101,8 +101,8 @@ testing {
 				implementation project(':test-common')
 				implementation platform('org.junit:junit-bom:5.12.0')
 				implementation 'org.assertj:assertj-core:3.27.6'
-				implementation 'org.mockito:mockito-core:5.15.2'
-				implementation 'org.mockito:mockito-junit-jupiter:5.15.2'
+				implementation 'org.mockito:mockito-core:5.21.0'
+				implementation 'org.mockito:mockito-junit-jupiter:5.21.0'
 
 				runtimeOnly 'org.junit.platform:junit-platform-launcher'
 			}
