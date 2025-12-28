@@ -84,7 +84,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql:42.7.5'
 
 	// Checks
-	spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
+	spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
 	// Custom checks
 	checkstyle project(':custom-checks')
