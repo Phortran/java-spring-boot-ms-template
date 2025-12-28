@@ -21,7 +21,7 @@ import jakarta.annotation.Generated;
  */
 
 @Schema(name = "Ingredient", description = "Recipe ingredient")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-07T11:55:54.264385344Z[Europe/London]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-28T03:09:42.850562636Z[Europe/London]", comments = "Generator version: 7.18.0")
 public class Ingredient {
 
   private @Nullable UUID id;
@@ -46,7 +46,7 @@ public class Ingredient {
     this.index = index;
   }
 
-  public Ingredient id(UUID id) {
+  public Ingredient id(@Nullable UUID id) {
     this.id = id;
     return this;
   }
@@ -58,11 +58,11 @@ public class Ingredient {
   @Valid 
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
-  public UUID getId() {
+  public @Nullable UUID getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(@Nullable UUID id) {
     this.id = id;
   }
 
@@ -106,7 +106,7 @@ public class Ingredient {
     this.index = index;
   }
 
-  public Ingredient quantity(Float quantity) {
+  public Ingredient quantity(@Nullable Float quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -118,15 +118,15 @@ public class Ingredient {
   
   @Schema(name = "quantity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("quantity")
-  public Float getQuantity() {
+  public @Nullable Float getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(Float quantity) {
+  public void setQuantity(@Nullable Float quantity) {
     this.quantity = quantity;
   }
 
-  public Ingredient unit(String unit) {
+  public Ingredient unit(@Nullable String unit) {
     this.unit = unit;
     return this;
   }
@@ -138,11 +138,11 @@ public class Ingredient {
   
   @Schema(name = "unit", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("unit")
-  public String getUnit() {
+  public @Nullable String getUnit() {
     return unit;
   }
 
-  public void setUnit(String unit) {
+  public void setUnit(@Nullable String unit) {
     this.unit = unit;
   }
 

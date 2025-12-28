@@ -22,14 +22,14 @@ import jakarta.annotation.Generated;
  */
 
 @JsonTypeName("updateRecipe_request")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-07T11:55:54.264385344Z[Europe/London]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-28T03:09:42.850562636Z[Europe/London]", comments = "Generator version: 7.18.0")
 public class UpdateRecipeRequest {
 
   private @Nullable OptionalRecipeBody toUpdate;
 
   private @Nullable OptionalRecipeBody toDelete;
 
-  public UpdateRecipeRequest toUpdate(OptionalRecipeBody toUpdate) {
+  public UpdateRecipeRequest toUpdate(@Nullable OptionalRecipeBody toUpdate) {
     this.toUpdate = toUpdate;
     return this;
   }
@@ -41,15 +41,15 @@ public class UpdateRecipeRequest {
   @Valid 
   @Schema(name = "toUpdate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("toUpdate")
-  public OptionalRecipeBody getToUpdate() {
+  public @Nullable OptionalRecipeBody getToUpdate() {
     return toUpdate;
   }
 
-  public void setToUpdate(OptionalRecipeBody toUpdate) {
+  public void setToUpdate(@Nullable OptionalRecipeBody toUpdate) {
     this.toUpdate = toUpdate;
   }
 
-  public UpdateRecipeRequest toDelete(OptionalRecipeBody toDelete) {
+  public UpdateRecipeRequest toDelete(@Nullable OptionalRecipeBody toDelete) {
     this.toDelete = toDelete;
     return this;
   }
@@ -61,11 +61,11 @@ public class UpdateRecipeRequest {
   @Valid 
   @Schema(name = "toDelete", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("toDelete")
-  public OptionalRecipeBody getToDelete() {
+  public @Nullable OptionalRecipeBody getToDelete() {
     return toDelete;
   }
 
-  public void setToDelete(OptionalRecipeBody toDelete) {
+  public void setToDelete(@Nullable OptionalRecipeBody toDelete) {
     this.toDelete = toDelete;
   }
 

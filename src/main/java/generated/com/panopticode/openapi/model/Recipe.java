@@ -27,7 +27,7 @@ import jakarta.annotation.Generated;
  */
 
 @Schema(name = "Recipe", description = "Complete recipe object")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-07T11:55:54.264385344Z[Europe/London]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-12-28T03:09:42.850562636Z[Europe/London]", comments = "Generator version: 7.18.0")
 public class Recipe {
 
   private @Nullable UUID id;
@@ -67,7 +67,7 @@ public class Recipe {
     this.prepTimeM = prepTimeM;
   }
 
-  public Recipe id(UUID id) {
+  public Recipe id(@Nullable UUID id) {
     this.id = id;
     return this;
   }
@@ -79,11 +79,11 @@ public class Recipe {
   @Valid 
   @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
-  public UUID getId() {
+  public @Nullable UUID getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(@Nullable UUID id) {
     this.id = id;
   }
 
@@ -127,7 +127,7 @@ public class Recipe {
     this.servings = servings;
   }
 
-  public Recipe textIntro(String textIntro) {
+  public Recipe textIntro(@Nullable String textIntro) {
     this.textIntro = textIntro;
     return this;
   }
@@ -139,15 +139,15 @@ public class Recipe {
   
   @Schema(name = "textIntro", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("textIntro")
-  public String getTextIntro() {
+  public @Nullable String getTextIntro() {
     return textIntro;
   }
 
-  public void setTextIntro(String textIntro) {
+  public void setTextIntro(@Nullable String textIntro) {
     this.textIntro = textIntro;
   }
 
-  public Recipe picture(String picture) {
+  public Recipe picture(@Nullable String picture) {
     this.picture = picture;
     return this;
   }
@@ -159,15 +159,15 @@ public class Recipe {
   
   @Schema(name = "picture", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("picture")
-  public String getPicture() {
+  public @Nullable String getPicture() {
     return picture;
   }
 
-  public void setPicture(String picture) {
+  public void setPicture(@Nullable String picture) {
     this.picture = picture;
   }
 
-  public Recipe thumbnail(String thumbnail) {
+  public Recipe thumbnail(@Nullable String thumbnail) {
     this.thumbnail = thumbnail;
     return this;
   }
@@ -179,11 +179,11 @@ public class Recipe {
   
   @Schema(name = "thumbnail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("thumbnail")
-  public String getThumbnail() {
+  public @Nullable String getThumbnail() {
     return thumbnail;
   }
 
-  public void setThumbnail(String thumbnail) {
+  public void setThumbnail(@Nullable String thumbnail) {
     this.thumbnail = thumbnail;
   }
 
@@ -227,7 +227,7 @@ public class Recipe {
     this.prepTimeM = prepTimeM;
   }
 
-  public Recipe cookTimeM(Integer cookTimeM) {
+  public Recipe cookTimeM(@Nullable Integer cookTimeM) {
     this.cookTimeM = cookTimeM;
     return this;
   }
@@ -239,15 +239,15 @@ public class Recipe {
   
   @Schema(name = "cookTimeM", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("cookTimeM")
-  public Integer getCookTimeM() {
+  public @Nullable Integer getCookTimeM() {
     return cookTimeM;
   }
 
-  public void setCookTimeM(Integer cookTimeM) {
+  public void setCookTimeM(@Nullable Integer cookTimeM) {
     this.cookTimeM = cookTimeM;
   }
 
-  public Recipe textOutro(String textOutro) {
+  public Recipe textOutro(@Nullable String textOutro) {
     this.textOutro = textOutro;
     return this;
   }
@@ -259,11 +259,11 @@ public class Recipe {
   
   @Schema(name = "textOutro", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("textOutro")
-  public String getTextOutro() {
+  public @Nullable String getTextOutro() {
     return textOutro;
   }
 
-  public void setTextOutro(String textOutro) {
+  public void setTextOutro(@Nullable String textOutro) {
     this.textOutro = textOutro;
   }
 
