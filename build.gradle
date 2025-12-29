@@ -3,7 +3,7 @@ import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 buildscript {
 	ext {
-		springVersion    = '3.4.3'
+		springVersion    = '3.5.9'
 		jooqVersion      = '3.20.10'
 		mapStructVersion = '1.6.3'
         flywaydbVersion  = '11.20.0'
@@ -15,12 +15,12 @@ plugins {
 	id 'jvm-test-suite'
 	id 'checkstyle'
 	id 'jacoco'
-	id 'org.springframework.boot' version "$springVersion"
+	id 'org.springframework.boot' version "$springVersion"//bom
 	id 'io.spring.dependency-management' version '1.1.7'
-	id 'org.flywaydb.flyway' version "$flywaydbVersion"
-	id 'org.jooq.jooq-codegen-gradle' version "$jooqVersion"
-	id 'org.openapi.generator' version '7.18.0'
-	id 'com.github.spotbugs' version '6.1.6'
+	id 'org.flywaydb.flyway' version "$flywaydbVersion"//bom
+	id 'org.jooq.jooq-codegen-gradle' version "$jooqVersion"//bom
+	id 'org.openapi.generator' version '7.18.0'//bom
+	id 'com.github.spotbugs' version '6.1.6'//bom
 }
 
 group = 'com.panopticode'
@@ -50,32 +50,32 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
 	// MapStruct
-	compileOnly "org.mapstruct:mapstruct:$mapStructVersion"
-	annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
+	compileOnly "org.mapstruct:mapstruct:$mapStructVersion"//bom
+	annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"//bom
 
 	// Logging
-	implementation 'org.slf4j:slf4j-api:2.0.17'
-	implementation 'ch.qos.logback:logback-classic'
-	implementation 'ch.qos.logback:logback-core'
-	implementation 'ch.qos.logback.access:logback-access-common:2.0.7'
-	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0'
+	implementation 'org.slf4j:slf4j-api:2.0.17' //bom
+	implementation 'ch.qos.logback:logback-classic' //bom
+	implementation 'ch.qos.logback:logback-core' //bom
+	implementation 'ch.qos.logback.access:logback-access-common:2.0.7' //bom
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0'//bom
 
 
 	// Spring
-	implementation 'org.springframework.boot:spring-boot-starter-jooq'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.data:spring-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-jooq'//bom
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'//bom
+	implementation 'org.springframework.boot:spring-boot-starter-web'//bom
+	implementation 'org.springframework.data:spring-data-jpa'//bom
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'//bom
 
 	// Persistence
-	implementation "org.flywaydb:flyway-core:$flywaydbVersion"
-	implementation "org.flywaydb:flyway-database-postgresql:$flywaydbVersion"
-	implementation "org.jooq:jooq:$jooqVersion"
+	implementation "org.flywaydb:flyway-core:$flywaydbVersion"//bom
+	implementation "org.flywaydb:flyway-database-postgresql:$flywaydbVersion"//bom
+	implementation "org.jooq:jooq:$jooqVersion"//bom
 
 	// Additional dependencies for OpenAPI
-	implementation 'org.openapitools:jackson-databind-nullable:0.2.8'
-	implementation 'org.springdoc:springdoc-openapi-ui:1.8.0'
+	implementation 'org.openapitools:jackson-databind-nullable:0.2.8'//bom
+	implementation 'org.springdoc:springdoc-openapi-ui:1.8.0'//bom
 
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -101,10 +101,10 @@ testing {
 
 			dependencies {
 				implementation project(':test-common')
-				implementation platform('org.junit:junit-bom:6.0.1')
-				implementation 'org.assertj:assertj-core:3.27.6'
-				implementation 'org.mockito:mockito-core:5.21.0'
-				implementation 'org.mockito:mockito-junit-jupiter:5.21.0'
+				implementation platform('org.junit:junit-bom:6.0.1')//bom
+				implementation 'org.assertj:assertj-core:3.27.6'//bom
+				implementation 'org.mockito:mockito-core:5.21.0'//bom
+				implementation 'org.mockito:mockito-junit-jupiter:5.21.0'//bom
 
 				runtimeOnly 'org.junit.platform:junit-platform-launcher'
 			}
@@ -123,13 +123,13 @@ testing {
 			dependencies {
 				implementation project(':')
 				implementation project(':test-common')
-				implementation 'org.springframework.boot:spring-boot-starter-test'
-				implementation 'org.springframework.boot:spring-boot-testcontainers'
-				implementation 'org.springframework:spring-tx:7.0.2'
-				implementation 'org.testcontainers:junit-jupiter:1.21.4'
-				implementation 'org.testcontainers:postgresql:1.21.4'
-				implementation "org.jooq:jooq:$jooqVersion"
-				implementation "org.flywaydb:flyway-core:$flywaydbVersion"
+				implementation 'org.springframework.boot:spring-boot-starter-test'//bom
+				implementation 'org.springframework.boot:spring-boot-testcontainers'//bom
+				implementation 'org.springframework:spring-tx:7.0.2'//bom
+				implementation 'org.testcontainers:junit-jupiter:1.21.4'//bom
+				implementation 'org.testcontainers:postgresql:1.21.4'//bom
+				implementation "org.jooq:jooq:$jooqVersion"//bom
+				implementation "org.flywaydb:flyway-core:$flywaydbVersion"//bom
 			}
 
 			sources {
