@@ -6,6 +6,7 @@ buildscript {
 		springVersion    = '3.4.3'
 		jooqVersion      = '3.20.10'
 		mapStructVersion = '1.6.3'
+        flywaydbVersion  = '11.20.0'
 	}
 }
 
@@ -16,7 +17,7 @@ plugins {
 	id 'jacoco'
 	id 'org.springframework.boot' version "$springVersion"
 	id 'io.spring.dependency-management' version '1.1.7'
-	id 'org.flywaydb.flyway' version '11.20.0'
+	id 'org.flywaydb.flyway' version "$flywaydbVersion"
 	id 'org.jooq.jooq-codegen-gradle' version "$jooqVersion"
 	id 'org.openapi.generator' version '7.18.0'
 	id 'com.github.spotbugs' version '6.1.6'
@@ -57,7 +58,7 @@ dependencies {
 	implementation 'ch.qos.logback:logback-classic'
 	implementation 'ch.qos.logback:logback-core'
 	implementation 'ch.qos.logback.access:logback-access-common:2.0.7'
-	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:2.0.0'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0'
 
 
 	// Spring
@@ -68,8 +69,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	// Persistence
-	implementation 'org.flywaydb:flyway-core:11.20.0'
-	implementation 'org.flywaydb:flyway-database-postgresql:11.20.0'
+	implementation "org.flywaydb:flyway-core:$flywaydbVersion"
+	implementation "org.flywaydb:flyway-database-postgresql:$flywaydbVersion"
 	implementation "org.jooq:jooq:$jooqVersion"
 
 	// Additional dependencies for OpenAPI
@@ -128,7 +129,7 @@ testing {
 				implementation 'org.testcontainers:junit-jupiter:1.21.4'
 				implementation 'org.testcontainers:postgresql:1.21.4'
 				implementation "org.jooq:jooq:$jooqVersion"
-				implementation 'org.flywaydb:flyway-core:11.20.0'
+				implementation "org.flywaydb:flyway-core:$flywaydbVersion"
 			}
 
 			sources {

@@ -12,22 +12,6 @@ WITH r_ids AS (
     )
   RETURNING id
 )
-INSERT INTO cookbook.step (recipe_id, index, text, picture_path)
-SELECT r_ids.id, 1, 'Sed non lectus eget ex ullamcorper tristique ac sed massa.', 'path/to/step/picture1'
-FROM r_ids;
-
--- Insert other steps for Recipe 1
-INSERT INTO cookbook.step (recipe_id, index, text, picture_path)
-SELECT r.id, 2, 'Duis sit amet aliquam urna, euismod ultricies velit.', null
-FROM (SELECT id FROM cookbook.recipe WHERE name = 'Recipe 1') AS r;
-
-INSERT INTO cookbook.step (recipe_id, index, text, picture_path)
-SELECT r.id, 3, 'Maecenas iaculis ex quis est dictum sodales.', 'path/to/step/picture3'
-FROM (SELECT id FROM cookbook.recipe WHERE name = 'Recipe 1') AS r;
-
-INSERT INTO cookbook.step (recipe_id, index, text, picture_path)
-SELECT r.id, 4, 'Et voila.', null
-FROM (SELECT id FROM cookbook.recipe WHERE name = 'Recipe 1') AS r;
 
 -- Insert ingredients
 INSERT INTO cookbook.ingredient (name)
