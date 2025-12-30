@@ -15,5 +15,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.puppycrawl.tools:checkstyle:10.21.3'
+    implementation libs.checkstyle
 }
